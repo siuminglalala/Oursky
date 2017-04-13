@@ -1,0 +1,42 @@
+body {
+    background-color: #6CADFF;
+}
+
+.app-name {
+    font-family: OpenSans-Bold;
+    font-size: 24px;
+    color: #FFFFFF;
+    letter-spacing: 7.69px;
+}
+
+div.app-header {
+    height: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6CADFF;
+}
+
+div.app-header>* {
+    margin: 0 0.5em
+}
+
+input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid white;
+    font-family: OpenSans;
+    font-size: 24px;
+    color: white;
+}
+
+.white-placeholder::-webkit-input-placeholder {
+    color: white;
+    opacity: 1 !important;
+}
+
+.grey-placeholder::-webkit-input-placeholder {
+    color: #D9D9D9;
+    opacity: 1 !important;
+}

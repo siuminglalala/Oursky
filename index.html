@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Task Timer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="app.css">
+    <script src="app.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="ctrl">
+    <div class="app-header">
+        <img src="logo.png">
+        <p class="app-name">TASK TIMER</p>
+    </div>
+    <div class="container">
+
+        <div class="row">
+            <div class="col s10">
+                <input type="text" placeholder="Enter task name" ng-model="newTaskName" class="white-placeholder">
+            </div>
+            <div class="col s2">
+                <img src="add-task-button.png" width="56" height="56" ng-click="addTask()">
+            </div>
+        </div>
+
+        <div class="row" ng-repeat="task in currentTasks" ng-if="!task.completed">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <span>{{task.name}} &nbsp;&nbsp;&nbsp;{{task.elapsedTime}} sec</span>
+                        <img src="add-task-button.png" ng-show="task.stopped" ng-click="startCounting($index)">
+                        <img src="pause-button.png" ng-show="!task.stopped" ng-click="stopCounting($index)">
+                        <img src="finish-button.png" ng-click="finishTask($index)">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-repeat="task in completedTasks">
+            <div class="col s12">
+                <div class="card" style="background-color: #F8F8F8;color:#D9D9D9;">
+                    <div class="card-content">
+                        <span style="color:#8EF377;">&#10004;</span>
+                        <span>{{task.name}}</span>
+                        <span style="float:right">{{task.elapsedTime}} sec</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<div ng-repeat="task in currentTasks" ng-if="!task.completed" class="w3-card w3-white">
+        <p>{{task.name}} {{task.elapsedTime}} sec</p>
+        <img src="add-task-button.png" ng-show="task.stopped" ng-click="startCounting($index)">
+        <img src="pause-button.png" ng-show="!task.stopped" ng-click="stopCounting($index)">
+        <img src="finish-button.png" ng-click="finishTask($index)">
+    </div>
+
+
+    <div ng-repeat="task in completedTasks" class="w3-card w3-white">
+        {{task.name}} {{task.elapsedTime}} sec
+    </div>-->
+
+
+</body>
+
+</html>
